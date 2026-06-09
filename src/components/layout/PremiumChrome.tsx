@@ -1,0 +1,114 @@
+"use client";
+
+import { Menu, ShoppingBag, UserRound, X } from "lucide-react";
+import Link from "next/link";
+import { useState, type ReactNode } from "react";
+
+const navItems = [
+  { href: "/", label: "Главная" },
+  { href: "/catalog", label: "Каталог" },
+  { href: "/cart", label: "Корзина" },
+  { href: "/account", label: "Личный кабинет" },
+  { href: "/#delivery", label: "Доставка" },
+  { href: "/#contact", label: "Контакты" }
+];
+
+export function PremiumChrome({
+  children,
+  current = "VAYMAH"
+}: {
+  children: ReactNode;
+  current?: string;
+}) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <main className="relative min-h-screen overflow-hidden bg-[#090604] font-sans text-[#f4eadc]">
+      <PremiumBackdrop label={current} />
+      <header className="relative z-40 border-b border-[#b9874d]/15 bg-[#080504]/85 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between px-5 py-5 md:px-10">
+          <Link href="/" className="flex items-center gap-3 transition hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]">
+            <span className="grid h-11 w-11 place-items-center border border-[#b9874d]/45 bg-black/20 text-sm font-semibold tracking-[0.08em]">
+              VM
+            </span>
+            <span className="font-display text-lg uppercase tracking-[0.34em] text-[#ead8bf]">VayMah</span>
+          </Link>
+
+          <nav className="hidden items-center gap-7 text-xs uppercase tracking-[0.26em] text-[#d8bea1]/76 lg:flex">
+            {navItems.map((item) => (
+              <Link key={item.href} className="cursor-pointer transition hover:text-[#f5e6d4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]" href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <Link className="grid h-10 w-10 cursor-pointer place-items-center border border-[#b9874d]/35 bg-[#160f0a]/70 text-[#f1dac2] transition hover:border-[#e8c08b] hover:text-[#fff2dc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]" href="/account" aria-label="Личный кабинет">
+              <UserRound size={17} />
+            </Link>
+            <Link className="grid h-10 w-10 cursor-pointer place-items-center bg-[#c79a63] text-[#100905] transition hover:bg-[#e8c08b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f8ead8]" href="/cart" aria-label="Корзина">
+              <ShoppingBag size={18} />
+            </Link>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              className="grid h-10 w-10 cursor-pointer place-items-center border border-[#b9874d]/35 bg-[#160f0a]/70 text-[#f1dac2] transition hover:border-[#e8c08b] hover:text-[#fff2dc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]"
+              aria-label="Открыть меню"
+            >
+              <Menu size={18} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" onClick={() => setMenuOpen(false)}>
+          <aside
+            className="ml-auto flex h-full w-[min(88vw,390px)] flex-col border-l border-[#b9874d]/25 bg-[#0d0704] p-6 shadow-[0_0_80px_rgba(0,0,0,0.7)]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-display text-lg uppercase tracking-[0.34em] text-[#ead8bf]">VayMah</span>
+              <button
+                type="button"
+                onClick={() => setMenuOpen(false)}
+                className="grid h-10 w-10 cursor-pointer place-items-center border border-[#b9874d]/35 text-[#f1dac2] transition hover:border-[#e8c08b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]"
+                aria-label="Закрыть меню"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            <nav className="mt-12 grid gap-3">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="cursor-pointer border-b border-[#b9874d]/16 py-4 text-lg tracking-[0.08em] text-[#f4e1c8] transition hover:text-[#e8c08b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </aside>
+        </div>
+      )}
+
+      <div className="relative z-10">{children}</div>
+    </main>
+  );
+}
+
+export function PremiumBackdrop({ label = "VAYMAH" }: { label?: string }) {
+  return (
+    <>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_46%_20%,rgba(163,98,45,0.28),transparent_28%),linear-gradient(115deg,#080504_0%,#17100c_48%,#050403_100%)]" />
+      <div className="font-display pointer-events-none absolute left-1/2 top-24 z-0 -translate-x-1/2 select-none whitespace-nowrap text-[19vw] font-medium uppercase leading-none tracking-normal text-[#f1d9bd]/[0.045]">
+        {label}
+      </div>
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/70 to-transparent" />
+    </>
+  );
+}
