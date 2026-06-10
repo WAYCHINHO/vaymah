@@ -177,8 +177,9 @@ export function Storefront() {
 
           <div data-reveal className="relative z-20 max-w-2xl">
             <p className="text-xs uppercase tracking-[0.42em] text-[#d8a867]">VayMah</p>
-            <h1 className="mt-4 max-w-3xl text-[clamp(2.7rem,14vw,7.6rem)] font-semibold leading-[0.86] text-[#fff3df]">
-              Парфюмерия без компромиссов
+            <h1 className="hero-brand-lockup mt-3 max-w-3xl" aria-label="Борж парфюмерий">
+              <span className="hero-signature">БОРЖ</span>
+              <span className="hero-signature-subtitle">ПАРФЮМЕРИЙ</span>
             </h1>
             <p className="mt-5 max-w-xl text-sm leading-7 text-[#f0d6b7]/76 sm:text-base md:text-lg md:leading-8">
               Только оригинальные ароматы от мировых парфюмерных домов. Доставка по всей России.
