@@ -42,7 +42,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   return (
     <PremiumChrome current={fragrance.name}>
       <section className="mx-auto max-w-[1500px] overflow-hidden px-5 py-12 md:px-10">
-        <Link href="/catalog" className="inline-flex cursor-pointer items-center gap-2 text-xs uppercase tracking-[0.24em] text-[#d7ad7a]/75 transition hover:text-[#e8c08b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]">
+        <Link href="/catalog" className="luxury-hover inline-flex cursor-pointer items-center gap-2 text-xs uppercase tracking-[0.24em] text-[#d7ad7a]/75 hover:text-[#e8c08b]">
           <ArrowLeft size={14} />
           Каталог
         </Link>
@@ -64,11 +64,11 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 <span className="pb-1 text-base text-[#d9c3ab]/45 line-through">{formatCurrency(fragrance.oldPrice, fragrance.currency)}</span>
               ) : null}
               {fragrance.discount ? (
-                <span className="mb-1 bg-[#e8c08b] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#120905]">-{fragrance.discount}</span>
+                <span className="luxury-badge mb-1 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#e8c08b]">-{fragrance.discount}</span>
               ) : null}
             </div>
 
-            <div className="mt-8 grid gap-4 border border-[#b9874d]/20 bg-[#100a07]/70 p-5 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="luxury-glass mt-8 grid gap-4 p-5 sm:grid-cols-2 xl:grid-cols-4">
               <DetailStat label="Тип" value={fragrance.concentration} />
               <DetailStat label="Объём" value={fragrance.size} />
               <DetailStat label="Наличие" value={fragrance.inventoryLabel} />
@@ -76,15 +76,15 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <button type="button" className="inline-flex h-12 cursor-pointer items-center justify-center gap-3 bg-[#e8c08b] px-5 text-sm font-semibold uppercase tracking-[0.14em] text-[#120905] transition hover:bg-[#f5d5a4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f8ead8]">
+              <button type="button" className="luxury-button inline-flex h-12 cursor-pointer items-center justify-center gap-3 px-5 text-sm font-semibold uppercase tracking-[0.14em]">
                 Добавить в корзину
                 <ArrowUpRight size={17} />
               </button>
-              <a href={contacts.whatsappHref} className="inline-flex h-12 cursor-pointer items-center justify-center gap-3 border border-[#b9874d]/35 px-5 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4e1c8] transition hover:border-[#e8c08b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]">
+              <a href={contacts.whatsappHref} className="luxury-glass luxury-hover inline-flex h-12 cursor-pointer items-center justify-center gap-3 px-5 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4e1c8]">
                 <MessageCircle size={17} />
                 WhatsApp
               </a>
-              <button type="button" className="inline-flex h-12 cursor-pointer items-center justify-center gap-3 border border-[#b9874d]/35 px-5 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4e1c8] transition hover:border-[#e8c08b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]">
+              <button type="button" className="luxury-glass luxury-hover inline-flex h-12 cursor-pointer items-center justify-center gap-3 px-5 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4e1c8]">
                 <ShieldCheck size={17} />
                 Проверить оригинальность
               </button>
@@ -102,7 +102,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
         </div>
 
         <div className="mt-14 grid gap-5 lg:grid-cols-[0.75fr_1.25fr]">
-          <section className="border border-[#b9874d]/20 bg-[#100a07]/60 p-5 md:p-6">
+          <section className="luxury-glass p-5 md:p-6">
             <p className="text-xs uppercase tracking-[0.32em] text-[#b9874d]">Характер</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               <DetailStat label="Когда носить" value={fragrance.whenToWear ?? "По настроению"} />
@@ -113,11 +113,11 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             </div>
           </section>
 
-          <section className="border border-[#b9874d]/20 bg-[#100a07]/60 p-5 md:p-6">
+          <section className="luxury-glass p-5 md:p-6">
             <p className="text-xs uppercase tracking-[0.32em] text-[#b9874d]">Ноты аромата</p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {(fragrance.noteGroups ?? [{ title: "Ноты", notes: fragrance.notes }]).map((group) => (
-                <div key={group.title} className="border border-[#b9874d]/16 bg-black/16 p-4">
+                <div key={group.title} className="luxury-glass luxury-hover p-4">
                   <h2 className="text-lg font-semibold text-[#f7ead8]">{group.title}</h2>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {group.notes.map((note) => (
@@ -132,7 +132,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
           </section>
         </div>
 
-        <section className="mt-14 border border-[#b9874d]/20 bg-[#100a07]/60 p-5 md:p-6">
+        <section className="luxury-glass mt-14 p-5 md:p-6">
           <p className="text-xs uppercase tracking-[0.32em] text-[#b9874d]">Контакты VayMah</p>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
             <ContactCard icon={<Phone size={17} />} label="Телефон" href={contacts.phoneHref} value={contacts.phoneLabel} />
@@ -140,7 +140,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             <ContactCard icon={<MessageCircle size={17} />} label="Telegram" href={contacts.telegramHref} value={contacts.telegramLabel} />
             <ContactCard icon={<Mail size={17} />} label="Почта" href={contacts.emailHref} value={contacts.emailLabel} />
           </div>
-          <div className="mt-3 flex items-start gap-3 border border-[#b9874d]/16 bg-black/16 p-4 text-sm leading-6 text-[#d9c3ab]/72">
+          <div className="luxury-glass mt-3 flex items-start gap-3 p-4 text-sm leading-6 text-[#d9c3ab]/72">
             <MapPin size={17} className="mt-1 shrink-0 text-[#e8c08b]" />
             {contacts.address}
           </div>
@@ -161,7 +161,7 @@ function DetailStat({ label, value }: { label: string; value: string }) {
 
 function InfoBlock({ icon, title, children }: { icon: ReactNode; title: string; children: ReactNode }) {
   return (
-    <div className="border border-[#b9874d]/20 bg-black/18 p-5">
+    <div className="luxury-glass luxury-hover p-5">
       <div className="flex items-center gap-3 text-[#e8c08b]">
         {icon}
         <h2 className="text-lg font-semibold text-[#f7ead8]">{title}</h2>
@@ -173,7 +173,7 @@ function InfoBlock({ icon, title, children }: { icon: ReactNode; title: string; 
 
 function ContactLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <a href={href} className="font-semibold text-[#f4e1c8] underline decoration-[#e8c08b]/35 underline-offset-4 transition hover:text-[#e8c08b]">
+    <a href={href} className="luxury-hover font-semibold text-[#f4e1c8] underline decoration-[#e8c08b]/35 underline-offset-4 hover:text-[#e8c08b]">
       {children}
     </a>
   );
@@ -181,7 +181,7 @@ function ContactLink({ href, children }: { href: string; children: ReactNode }) 
 
 function ContactCard({ icon, label, href, value }: { icon: ReactNode; label: string; href: string; value: string }) {
   return (
-    <a href={href} className="flex min-w-0 items-center gap-3 border border-[#b9874d]/16 bg-black/16 p-4 text-sm transition hover:border-[#e8c08b]/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]">
+    <a href={href} className="luxury-glass luxury-hover flex min-w-0 items-center gap-3 p-4 text-sm">
       <span className="text-[#e8c08b]">{icon}</span>
       <span className="min-w-0">
         <span className="block text-xs uppercase tracking-[0.18em] text-[#b9874d]">{label}</span>

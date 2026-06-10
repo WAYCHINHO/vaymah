@@ -25,10 +25,10 @@ export function PremiumChrome({
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#090604] font-sans text-[#f4eadc]">
       <PremiumBackdrop label={current} />
-      <header className="relative z-40 border-b border-[#b9874d]/15 bg-[#080504]/85 backdrop-blur-xl">
+      <header className="luxury-glass relative z-40 border-x-0 border-t-0 bg-[#080504]/72">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between px-5 py-5 md:px-10">
-          <Link href="/" className="flex items-center gap-3 transition hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]">
-            <span className="grid h-11 w-11 place-items-center border border-[#b9874d]/45 bg-black/20 text-sm font-semibold tracking-[0.08em]">
+          <Link href="/" className="luxury-hover flex items-center gap-3">
+            <span className="luxury-glass grid h-11 w-11 place-items-center text-sm font-semibold tracking-[0.08em]">
               VM
             </span>
             <span className="font-display text-lg uppercase tracking-[0.34em] text-[#ead8bf]">VayMah</span>
@@ -36,23 +36,23 @@ export function PremiumChrome({
 
           <nav className="hidden items-center gap-7 text-xs uppercase tracking-[0.26em] text-[#d8bea1]/76 lg:flex">
             {navItems.map((item) => (
-              <Link key={item.href} className="cursor-pointer transition hover:text-[#f5e6d4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]" href={item.href}>
+              <Link key={item.href} className="luxury-hover cursor-pointer px-1 py-2 hover:text-[#f5e6d4]" href={item.href}>
                 {item.label}
               </Link>
             ))}
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link className="grid h-10 w-10 cursor-pointer place-items-center border border-[#b9874d]/35 bg-[#160f0a]/70 text-[#f1dac2] transition hover:border-[#e8c08b] hover:text-[#fff2dc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]" href="/account" aria-label="Личный кабинет">
+            <Link className="luxury-glass luxury-hover grid h-10 w-10 cursor-pointer place-items-center text-[#f1dac2] hover:text-[#fff2dc]" href="/account" aria-label="Личный кабинет">
               <UserRound size={17} />
             </Link>
-            <Link className="grid h-10 w-10 cursor-pointer place-items-center bg-[#c79a63] text-[#100905] transition hover:bg-[#e8c08b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f8ead8]" href="/cart" aria-label="Корзина">
+            <Link className="luxury-button grid h-10 w-10 cursor-pointer place-items-center" href="/cart" aria-label="Корзина">
               <ShoppingBag size={18} />
             </Link>
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              className="grid h-10 w-10 cursor-pointer place-items-center border border-[#b9874d]/35 bg-[#160f0a]/70 text-[#f1dac2] transition hover:border-[#e8c08b] hover:text-[#fff2dc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]"
+              className="luxury-glass luxury-hover grid h-10 w-10 cursor-pointer place-items-center text-[#f1dac2] hover:text-[#fff2dc]"
               aria-label="Открыть меню"
             >
               <Menu size={18} />
@@ -64,7 +64,7 @@ export function PremiumChrome({
       {menuOpen && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" onClick={() => setMenuOpen(false)}>
           <aside
-            className="ml-auto flex h-full w-[min(88vw,390px)] flex-col border-l border-[#b9874d]/25 bg-[#0d0704] p-6 shadow-[0_0_80px_rgba(0,0,0,0.7)]"
+            className="luxury-glass ml-auto flex h-full w-[min(88vw,390px)] flex-col border-y-0 border-r-0 p-6 shadow-[0_0_80px_rgba(0,0,0,0.7)]"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-center justify-between">
@@ -72,7 +72,7 @@ export function PremiumChrome({
               <button
                 type="button"
                 onClick={() => setMenuOpen(false)}
-                className="grid h-10 w-10 cursor-pointer place-items-center border border-[#b9874d]/35 text-[#f1dac2] transition hover:border-[#e8c08b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]"
+                className="luxury-glass luxury-hover grid h-10 w-10 cursor-pointer place-items-center text-[#f1dac2]"
                 aria-label="Закрыть меню"
               >
                 <X size={18} />
@@ -85,7 +85,7 @@ export function PremiumChrome({
                   key={item.href}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="cursor-pointer border-b border-[#b9874d]/16 py-4 text-lg tracking-[0.08em] text-[#f4e1c8] transition hover:text-[#e8c08b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e8c08b]"
+                  className="luxury-hover cursor-pointer border-b border-[#b9874d]/16 py-4 text-lg tracking-[0.08em] text-[#f4e1c8] hover:text-[#e8c08b]"
                 >
                   {item.label}
                 </Link>

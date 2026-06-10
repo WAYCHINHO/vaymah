@@ -15,12 +15,12 @@ export function ProductGallery({ images, name }: ProductGalleryProps) {
 
   return (
     <>
-      <div className="relative overflow-hidden border border-[#b9874d]/20 bg-[#080504]">
+      <div className="luxury-glass relative overflow-hidden bg-[#080504]/85">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(218,150,74,0.34),transparent_38%),linear-gradient(180deg,transparent,#050302_92%)]" />
         <button
           type="button"
           onClick={() => setZoomed(true)}
-          className="relative grid min-h-[620px] w-full place-items-center"
+          className="luxury-hover relative grid min-h-[620px] w-full place-items-center"
           aria-label="Увеличить фото товара"
         >
           <Image
@@ -28,7 +28,7 @@ export function ProductGallery({ images, name }: ProductGalleryProps) {
             alt={name}
             fill
             sizes="(max-width: 1024px) 100vw, 48vw"
-            className="object-contain p-8 drop-shadow-[0_42px_120px_rgba(0,0,0,0.78)] transition duration-500 hover:scale-[1.02]"
+            className="object-contain p-8 drop-shadow-[0_42px_120px_rgba(0,0,0,0.78)] transition duration-300 ease-out hover:scale-[1.025] active:scale-[1.01]"
             priority
           />
         </button>
@@ -38,8 +38,8 @@ export function ProductGallery({ images, name }: ProductGalleryProps) {
               key={`${image}-${index}`}
               type="button"
               onClick={() => setActiveIndex(index)}
-              className={`relative aspect-square overflow-hidden border transition ${
-                activeIndex === index ? "border-[#e8c08b]" : "border-[#b9874d]/20"
+              className={`luxury-hover relative aspect-square overflow-hidden border transition ${
+                activeIndex === index ? "luxury-glow border-[#e8c08b]" : "border-[#b9874d]/20"
               }`}
               aria-label={`Показать фото ${index + 1}`}
             >
@@ -53,7 +53,7 @@ export function ProductGallery({ images, name }: ProductGalleryProps) {
         <div className="fixed inset-0 z-50 grid place-items-center bg-black/88 p-5 backdrop-blur-sm" onClick={() => setZoomed(false)}>
           <button
             type="button"
-            className="absolute right-5 top-5 border border-[#b9874d]/35 px-4 py-3 text-xs uppercase tracking-[0.2em] text-[#f4e1c8]"
+            className="luxury-glass luxury-hover absolute right-5 top-5 px-4 py-3 text-xs uppercase tracking-[0.2em] text-[#f4e1c8]"
             onClick={() => setZoomed(false)}
           >
             Закрыть

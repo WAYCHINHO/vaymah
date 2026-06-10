@@ -18,7 +18,7 @@ export default function CatalogPage() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 min-[1400px]:grid-cols-4">
           {fragrances.map((fragrance, index) => (
             <FragranceCard key={fragrance.id} fragrance={fragrance} index={index} />
           ))}
