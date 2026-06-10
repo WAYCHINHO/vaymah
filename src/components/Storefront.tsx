@@ -53,10 +53,10 @@ const reviews = [
 ];
 
 const heroProducts = [
-  { id: "creed-absolu-aventus", className: "left-[3%] bottom-[8%] h-[56%] w-[24%] opacity-95 md:left-[2%] md:h-[58%]" },
-  { id: "blonde-amber", className: "left-[30%] bottom-[4%] z-20 h-[76%] w-[30%] md:left-[29%] md:h-[80%]" },
-  { id: "tom-ford-grey-vetiver", className: "right-[20%] bottom-[8%] z-10 h-[63%] w-[24%] md:h-[66%]" },
-  { id: "kilian-back-to-black", className: "right-[1%] bottom-[9%] h-[55%] w-[22%] opacity-95 md:right-[0%] md:h-[57%]" }
+  { id: "creed-absolu-aventus", className: "left-[5%] bottom-[13%] z-10 h-[56%] w-[28%] opacity-95 sm:left-[7%] md:left-[9%] md:bottom-[14%] md:h-[58%] lg:left-[8%] lg:h-[60%]" },
+  { id: "blonde-amber", className: "left-[26%] bottom-[6%] z-30 h-[78%] w-[34%] sm:left-[28%] md:left-[30%] md:h-[82%] lg:left-[29%] lg:bottom-[5%] lg:h-[84%]" },
+  { id: "tom-ford-grey-vetiver", className: "left-[52%] bottom-[12%] z-20 h-[62%] w-[28%] sm:left-[53%] md:left-[55%] md:h-[66%] lg:left-[54%] lg:h-[68%]" },
+  { id: "kilian-back-to-black", className: "left-[72%] bottom-[14%] z-10 h-[55%] w-[25%] opacity-95 sm:left-[73%] md:left-[75%] md:h-[58%] lg:left-[74%] lg:h-[60%]" }
 ]
   .map((item) => ({
     ...item,
@@ -181,7 +181,7 @@ export function Storefront() {
               Парфюмерия без компромиссов
             </h1>
             <p className="mt-5 max-w-xl text-sm leading-7 text-[#f0d6b7]/76 sm:text-base md:text-lg md:leading-8">
-              Оригинальная парфюмерия мировых брендов с доставкой по России. Только реальные позиции, аккуратная упаковка и спокойный премиальный сервис.
+              Только оригинальные ароматы от мировых парфюмерных домов. Доставка по всей России.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-8">
@@ -197,9 +197,11 @@ export function Storefront() {
           </div>
 
           <div data-reveal className="relative z-10 mt-6 min-h-[285px] sm:min-h-[360px] md:min-h-[440px] lg:mt-0 lg:min-h-[650px]">
-            <div className="absolute inset-x-[5%] bottom-[2%] h-[28%] rounded-[999px] bg-[radial-gradient(ellipse_at_center,rgba(232,192,139,0.26),rgba(111,56,24,0.08)_42%,transparent_72%)] blur-2xl" />
-            <div className="absolute inset-x-[7%] bottom-[8%] h-px bg-gradient-to-r from-transparent via-[#f8d9a5]/50 to-transparent" />
-            <div className="absolute inset-x-[10%] bottom-[5%] h-[13%] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(232,192,139,0.06),transparent)] opacity-50 blur-[1px]" />
+            <div className="absolute inset-x-[1%] bottom-[14%] h-[62%] rounded-[999px] bg-[radial-gradient(ellipse_at_center,rgba(232,192,139,0.34),rgba(150,82,36,0.15)_42%,transparent_72%)] blur-3xl" />
+            <div className="absolute inset-x-[3%] bottom-[8%] h-[18%] rounded-[999px] bg-[radial-gradient(ellipse_at_center,rgba(255,225,172,0.22),rgba(128,68,30,0.08)_50%,transparent_74%)] blur-xl" />
+            <div className="absolute inset-x-[5%] bottom-[11%] h-px bg-gradient-to-r from-transparent via-[#f8d9a5]/65 to-transparent" />
+            <div className="absolute inset-x-[8%] bottom-[4%] h-[17%] bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(232,192,139,0.08),rgba(0,0,0,0))] opacity-55 blur-[1px]" />
+            <div className="absolute inset-x-[10%] bottom-[6%] h-[12%] bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.62),transparent_70%)] blur-xl" />
 
             {heroProducts.map(({ fragrance, className }) => (
               <Link
