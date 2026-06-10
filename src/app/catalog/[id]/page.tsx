@@ -1,8 +1,9 @@
 import { ProductGallery } from "@/components/commerce/ProductGallery";
+import { AddToCartButton } from "@/components/commerce/AddToCartButton";
 import { PremiumChrome } from "@/components/layout/PremiumChrome";
 import { contacts } from "@/data/contacts";
 import { formatCurrency, fragrances } from "@/data/products";
-import { ArrowLeft, ArrowUpRight, CreditCard, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Truck } from "lucide-react";
+import { ArrowLeft, CreditCard, Instagram, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Truck } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
@@ -76,10 +77,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <button type="button" className="luxury-button inline-flex h-12 cursor-pointer items-center justify-center gap-3 px-5 text-sm font-semibold uppercase tracking-[0.14em]">
-                Добавить в корзину
-                <ArrowUpRight size={17} />
-              </button>
+              <AddToCartButton fragranceId={fragrance.id} />
               <a href={contacts.whatsappHref} className="luxury-glass luxury-hover inline-flex h-12 cursor-pointer items-center justify-center gap-3 px-5 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4e1c8]">
                 <MessageCircle size={17} />
                 WhatsApp
@@ -138,6 +136,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             <ContactCard icon={<Phone size={17} />} label="Телефон" href={contacts.phoneHref} value={contacts.phoneLabel} />
             <ContactCard icon={<MessageCircle size={17} />} label="WhatsApp" href={contacts.whatsappHref} value={contacts.phoneLabel} />
             <ContactCard icon={<MessageCircle size={17} />} label="Telegram" href={contacts.telegramHref} value={contacts.telegramLabel} />
+            <ContactCard icon={<Instagram size={17} />} label="Instagram" href={contacts.instagramHref} value="мой личный блог" external />
             <ContactCard icon={<Mail size={17} />} label="Почта" href={contacts.emailHref} value={contacts.emailLabel} />
           </div>
           <div className="luxury-glass mt-3 flex items-start gap-3 p-4 text-sm leading-6 text-[#d9c3ab]/72">
@@ -179,9 +178,9 @@ function ContactLink({ href, children }: { href: string; children: ReactNode }) 
   );
 }
 
-function ContactCard({ icon, label, href, value }: { icon: ReactNode; label: string; href: string; value: string }) {
+function ContactCard({ icon, label, href, value, external = false }: { icon: ReactNode; label: string; href: string; value: string; external?: boolean }) {
   return (
-    <a href={href} className="luxury-glass luxury-hover flex min-w-0 items-center gap-3 p-4 text-sm">
+    <a href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} className="luxury-glass luxury-hover flex min-w-0 items-center gap-3 p-4 text-sm">
       <span className="text-[#e8c08b]">{icon}</span>
       <span className="min-w-0">
         <span className="block text-xs uppercase tracking-[0.18em] text-[#b9874d]">{label}</span>

@@ -1,6 +1,8 @@
 "use client";
 
-import { Menu, ShoppingBag, UserRound, X } from "lucide-react";
+import { CartLink } from "@/components/commerce/CartLink";
+import { contacts } from "@/data/contacts";
+import { Instagram, Menu, UserRound, X } from "lucide-react";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
 
@@ -46,9 +48,7 @@ export function PremiumChrome({
             <Link className="luxury-glass luxury-hover grid h-10 w-10 cursor-pointer place-items-center text-[#f1dac2] hover:text-[#fff2dc]" href="/account" aria-label="Личный кабинет">
               <UserRound size={17} />
             </Link>
-            <Link className="luxury-button grid h-10 w-10 cursor-pointer place-items-center" href="/cart" aria-label="Корзина">
-              <ShoppingBag size={18} />
-            </Link>
+            <CartLink />
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
@@ -90,6 +90,15 @@ export function PremiumChrome({
                   {item.label}
                 </Link>
               ))}
+              <a
+                href={contacts.instagramHref}
+                target="_blank"
+                rel="noreferrer"
+                className="luxury-glass luxury-hover mt-5 flex min-h-12 cursor-pointer items-center gap-3 px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4e1c8] hover:text-[#e8c08b]"
+              >
+                <Instagram size={17} className="text-[#e8c08b]" />
+                Instagram — мой личный блог
+              </a>
             </nav>
           </aside>
         </div>

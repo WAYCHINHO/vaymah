@@ -2,7 +2,7 @@
 
 import { contacts } from "@/data/contacts";
 import { cartPreview, formatCurrency, fragrances } from "@/data/products";
-import { Copy, Mail, MessageCircle, Minus, Phone, Plus, ReceiptText, ShieldCheck, Trash2 } from "lucide-react";
+import { Copy, Instagram, Mail, MessageCircle, Minus, Phone, Plus, ReceiptText, ShieldCheck, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 
@@ -259,6 +259,7 @@ export function CartExperience() {
           <ContactLine icon={<Phone size={15} />} href={contacts.phoneHref} value={contacts.phoneLabel} />
           <ContactLine icon={<MessageCircle size={15} />} href={contacts.whatsappHref} value={`WhatsApp: ${contacts.phoneLabel}`} />
           <ContactLine icon={<MessageCircle size={15} />} href={contacts.telegramHref} value={`Telegram: ${contacts.telegramLabel}`} />
+          <ContactLine icon={<Instagram size={15} />} href={contacts.instagramHref} value={contacts.instagramLabel} external />
           <ContactLine icon={<Mail size={15} />} href={contacts.emailHref} value={contacts.emailLabel} />
           <div className="flex items-start gap-3">
             <ShieldCheck size={15} className="mt-0.5 shrink-0 text-[#c79a63]" />
@@ -270,9 +271,9 @@ export function CartExperience() {
   );
 }
 
-function ContactLine({ icon, href, value }: { icon: ReactNode; href: string; value: string }) {
+function ContactLine({ icon, href, value, external = false }: { icon: ReactNode; href: string; value: string; external?: boolean }) {
   return (
-    <a href={href} className="flex min-w-0 items-center gap-3 transition hover:text-[#e8c08b]">
+    <a href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} className="flex min-w-0 items-center gap-3 transition hover:text-[#e8c08b]">
       <span className="shrink-0 text-[#c79a63]">{icon}</span>
       <span className="break-words">{value}</span>
     </a>

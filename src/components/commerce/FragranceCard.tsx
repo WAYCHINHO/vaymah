@@ -1,5 +1,6 @@
 import { formatCurrency, type Fragrance } from "@/data/products";
-import { ArrowUpRight, ShoppingBag } from "lucide-react";
+import { AddToCartButton } from "@/components/commerce/AddToCartButton";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -40,10 +41,7 @@ export function FragranceCard({ fragrance, index }: { fragrance: Fragrance; inde
 
       <div className="mt-4 flex items-center justify-between gap-2">
         <span className="text-[0.68rem] uppercase tracking-[0.16em] text-[#d8bea1]/45">{fragrance.size}</span>
-        <button type="button" className="luxury-button inline-flex h-9 cursor-pointer items-center gap-2 px-3 text-[0.68rem] font-semibold uppercase tracking-[0.12em]">
-          <ShoppingBag size={13} />
-          В корзину
-        </button>
+        <AddToCartButton fragranceId={fragrance.id} compact />
       </div>
 
       <Link className="luxury-hover mt-3 inline-flex cursor-pointer items-center gap-2 text-[0.68rem] uppercase tracking-[0.18em] text-[#d7ad7a]/75 hover:text-[#e8c08b]" href={`/catalog/${fragrance.id}`}>
